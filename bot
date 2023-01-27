@@ -1,0 +1,11 @@
+import telebot
+
+bot = telebot.TeleBot("5655361736:AAESPWPTfSh_h2ZMkKN2VPVMZ5fm_dGLGvI")
+
+@bot.message_handler(func=lambda message: message.from_user.username == "@klaymen")
+def personal_links(message):
+    links = {"Link 1": "https://www.example1.com", "Link 2": "https://www.example2.com"}
+    for link_name, link_url in links.items():
+        bot.reply_to(message, f"{link_name}: {link_url}")
+
+bot.polling()
